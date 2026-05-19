@@ -16,6 +16,7 @@
       <div class="header-meta">
         <div class="timer" id="timer">05:00</div>
         <div class="score">Skor: <span id="score">0</span></div>
+        <div class="high-score">Skor Tertinggi: <span id="highScore">0</span></div>
       </div>
     </header>
 
@@ -39,6 +40,14 @@
             <button class="game-card" data-game="quizKata">
               <strong>Quiz Kata</strong>
               <span>Jawab pertanyaan singkat untuk nilai ekstra.</span>
+            </button>
+            <button class="game-card" data-game="hitungCepat">
+              <strong>Hitung Cepat</strong>
+              <span>Latih angka dan operasi matematika sederhana.</span>
+            </button>
+            <button class="game-card" data-game="susunKata">
+              <strong>Susun Kata</strong>
+              <span>Temukan kata yang benar dari huruf yang disusun.</span>
             </button>
           </div>
           <div class="action-row">
@@ -74,6 +83,7 @@
           <h2>Waktu Habis!</h2>
           <p>Skor akhir kamu:</p>
           <div class="final-score" id="finalScore">0</div>
+          <div class="final-high-score">Skor tertinggi: <span id="finalHighScore">0</span></div>
           <div class="action-row">
             <button class="btn btn-primary" id="playAgainButton">Main Lagi</button>
             <button class="btn btn-secondary" id="returnHomeButton">Kembali ke Menu</button>

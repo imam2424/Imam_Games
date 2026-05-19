@@ -2,6 +2,7 @@ const TIMER_SECONDS = 300;
 const state = {
   timeLeft: TIMER_SECONDS,
   score: 0,
+  highScore: 0,
   activeGame: null,
   gameData: null,
   timerId: null,
@@ -23,35 +24,55 @@ const games = {
     title: "Tebak Nama",
     description: "Baca petunjuk dan pilih jawaban yang benar.",
     questions: [
-      { prompt: "Binatang peliharaan yang suka menggonggong.", answer: "Anjing", choices: ["Kucing", "Anjing", "Ayam", "Kelinci"] },
-      { prompt: "Alat yang dipakai untuk menulis di kertas.", answer: "Pensil", choices: ["Penggaris", "Pensil", "Gunting", "Sapu"] },
-      { prompt: "Benda yang tumbuh di kebun dan bersayap.", answer: "Kupu-kupu", choices: ["Kupu-kupu", "Ikan", "Kelinci", "Buku"] },
-      { prompt: "Minuman yang berasal dari buah jeruk.", answer: "Jus", choices: ["Jus", "Susu", "Teh", "Air"] },
-      { prompt: "Makanan khas nasi yang digulung dengan rumput laut.", answer: "Sushi", choices: ["Pizza", "Sushi", "Roti", "Burger"] },
+      { prompt: "Binatang peliharaan yang suka menggonggong.", image: "🐶", answer: "Anjing", choices: ["Kucing", "Anjing", "Ayam", "Kelinci"] },
+      { prompt: "Alat yang dipakai untuk menulis di kertas.", image: "✏️", answer: "Pensil", choices: ["Penggaris", "Pensil", "Gunting", "Sapu"] },
+      { prompt: "Benda yang tumbuh di kebun dan bersayap.", image: "🦋", answer: "Kupu-kupu", choices: ["Kupu-kupu", "Ikan", "Kelinci", "Buku"] },
+      { prompt: "Minuman yang berasal dari buah jeruk.", image: "🍹", answer: "Jus", choices: ["Jus", "Susu", "Teh", "Air"] },
+      { prompt: "Makanan khas nasi yang digulung dengan rumput laut.", image: "🍣", answer: "Sushi", choices: ["Pizza", "Sushi", "Roti", "Burger"] },
     ],
   },
   tebakNegara: {
     title: "Tebak Negara",
     description: "Pilih nama negara berdasarkan petunjuk atau bendera.",
     questions: [
-      { prompt: "Bendera: 🇮🇩. Negara ini beribu kota Jakarta.", answer: "Indonesia", choices: ["Malaysia", "Thailand", "Indonesia", "Filipina"] },
-      { prompt: "Ibu kota: Tokyo.", answer: "Jepang", choices: ["Korea", "Jepang", "China", "India"] },
-      { prompt: "Bendera: 🇧🇷. Terkenal dengan hutan Amazon.", answer: "Brasil", choices: ["Argentina", "Brasil", "Meksiko", "Chile"] },
-      { prompt: "Negara ini beribukota Paris.", answer: "Prancis", choices: ["Spanyol", "Prancis", "Italia", "Jerman"] },
-      { prompt: "Bendera: 🇦🇺. Negara ini berada di benua Oceania.", answer: "Australia", choices: ["Australia", "Selandia Baru", "Kanada", "Afrika Selatan"] },
+      { prompt: "Negara ini beribu kota Jakarta.", image: "🇮🇩", answer: "Indonesia", choices: ["Malaysia", "Thailand", "Indonesia", "Filipina"] },
+      { prompt: "Ibu kota: Tokyo.", image: "🇯🇵", answer: "Jepang", choices: ["Korea", "Jepang", "China", "India"] },
+      { prompt: "Terkenal dengan hutan Amazon.", image: "🇧🇷", answer: "Brasil", choices: ["Argentina", "Brasil", "Meksiko", "Chile"] },
+      { prompt: "Negara ini beribukota Paris.", image: "🇫🇷", answer: "Prancis", choices: ["Spanyol", "Prancis", "Italia", "Jerman"] },
+      { prompt: "Negara ini berada di benua Oceania.", image: "🇦🇺", answer: "Australia", choices: ["Australia", "Selandia Baru", "Kanada", "Afrika Selatan"] },
     ],
   },
   quizKata: {
     title: "Quiz Kata",
     description: "Jawab pertanyaan edukatif dengan cepat.",
     questions: [
-      { prompt: "Benda yang kita gunakan untuk makan sup.", answer: "Sendok", choices: ["Sendok", "Pisau", "Piring", "Gelas"] },
-      { prompt: "Anak kucing disebut...",
-        answer: "Anak Kucing",
-        choices: ["Anak Kambing", "Anak Kucing", "Anak Ayam", "Anak Sapi"] },
-      { prompt: "Warna campuran merah dan putih.", answer: "Merah Muda", choices: ["Ungu", "Merah Muda", "Oranye", "Hijau"] },
-      { prompt: "Bulan ke-12 dalam kalender.", answer: "Desember", choices: ["November", "Desember", "Januari", "Oktober"] },
-      { prompt: "Rumah yang terbuat dari es di kutub utara.", answer: "Igloo", choices: ["Tenda", "Igloo", "Rumah", "Gudang"] },
+      { prompt: "Benda yang kita gunakan untuk makan sup.", image: "🥄", answer: "Sendok", choices: ["Sendok", "Pisau", "Piring", "Gelas"] },
+      { prompt: "Anak kucing disebut...", image: "🐱", answer: "Anak Kucing", choices: ["Anak Kambing", "Anak Kucing", "Anak Ayam", "Anak Sapi"] },
+      { prompt: "Warna campuran merah dan putih.", image: "🌸", answer: "Merah Muda", choices: ["Ungu", "Merah Muda", "Oranye", "Hijau"] },
+      { prompt: "Bulan ke-12 dalam kalender.", image: "🎄", answer: "Desember", choices: ["November", "Desember", "Januari", "Oktober"] },
+      { prompt: "Rumah yang terbuat dari es di kutub utara.", image: "🏠", answer: "Igloo", choices: ["Tenda", "Igloo", "Rumah", "Gudang"] },
+    ],
+  },
+  hitungCepat: {
+    title: "Hitung Cepat",
+    description: "Hitung angka dengan cepat dan pilih jawaban yang benar.",
+    questions: [
+      { prompt: "5 + 3 = ?", image: "➕", answer: "8", choices: ["7", "8", "9", "6"] },
+      { prompt: "7 - 2 = ?", image: "➖", answer: "5", choices: ["3", "5", "6", "4"] },
+      { prompt: "4 x 2 = ?", image: "✖️", answer: "8", choices: ["6", "7", "8", "9"] },
+      { prompt: "9 - 5 = ?", image: "➖", answer: "4", choices: ["3", "4", "5", "6"] },
+      { prompt: "3 + 4 = ?", image: "➕", answer: "7", choices: ["6", "7", "8", "5"] },
+    ],
+  },
+  susunKata: {
+    title: "Susun Kata",
+    description: "Cari kata yang benar dari huruf yang tersedia.",
+    questions: [
+      { prompt: "Huruf: S A Y U R", image: "🥕", answer: "Sayur", choices: ["Sayur", "Buah", "Kue", "Air"] },
+      { prompt: "Huruf: B O L A", image: "⚽", answer: "Bola", choices: ["Bola", "Kuda", "Kasur", "Buku"] },
+      { prompt: "Huruf: R U M A H", image: "🏠", answer: "Rumah", choices: ["Rumah", "Meja", "Buku", "Kapal"] },
+      { prompt: "Huruf: A N J I N G", image: "🐶", answer: "Anjing", choices: ["Kucing", "Anjing", "Ikan", "Burung"] },
+      { prompt: "Huruf: P E N S I L", image: "✏️", answer: "Pensil", choices: ["Pensil", "Meja", "Tas", "Buku"] },
     ],
   },
 };
@@ -66,7 +87,9 @@ const changeGameButton = document.getElementById("changeGameButton");
 const restartButton = document.getElementById("restartButton");
 const timerEl = document.getElementById("timer");
 const scoreEl = document.getElementById("score");
+const highScoreEl = document.getElementById("highScore");
 const finalScoreEl = document.getElementById("finalScore");
+const finalHighScoreEl = document.getElementById("finalHighScore");
 const gameTitle = document.getElementById("gameTitle");
 const gameDescription = document.getElementById("gameDescription");
 const promptText = document.getElementById("promptText");
@@ -77,13 +100,30 @@ function init() {
   state.activeGame = "tabakGambar";
   state.score = 0;
   state.timeLeft = TIMER_SECONDS;
+  state.highScore = loadHighScore();
   updateScore();
   updateTimerDisplay();
+  updateHighScoreDisplay();
   bindGameSelection();
+}
+
+function loadHighScore() {
+  return Number(localStorage.getItem("imamGamesHighScore") || 0);
+}
+
+function saveHighScore() {
+  localStorage.setItem("imamGamesHighScore", String(state.highScore));
+}
+
+function updateHighScoreDisplay() {
+  highScoreEl.textContent = state.highScore;
 }
 
 function bindGameSelection() {
   document.querySelectorAll(".game-card").forEach((button) => {
+    if (button.dataset.game === state.activeGame) {
+      button.classList.add("active-card");
+    }
     button.addEventListener("click", () => {
       state.activeGame = button.dataset.game;
       document.querySelectorAll(".game-card").forEach((item) => item.classList.remove("active-card"));
@@ -141,6 +181,11 @@ function selectAnswer(choice, expected, button) {
 
 function updateScore() {
   scoreEl.textContent = state.score;
+  if (state.score > state.highScore) {
+    state.highScore = state.score;
+    saveHighScore();
+    updateHighScoreDisplay();
+  }
 }
 
 function updateTimerDisplay() {
@@ -162,7 +207,13 @@ function startCountdown() {
 
 function endGame() {
   clearInterval(state.timerId);
+  if (state.score > state.highScore) {
+    state.highScore = state.score;
+    saveHighScore();
+  }
   finalScoreEl.textContent = state.score;
+  finalHighScoreEl.textContent = state.highScore;
+  updateHighScoreDisplay();
   showScreen(endScreen);
 }
 

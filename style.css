@@ -57,15 +57,25 @@ body {
   display: flex;
   gap: 14px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .timer,
-.score {
+.score,
+.high-score {
   font-weight: 700;
   padding: 12px 18px;
   border-radius: 16px;
   background: #f0f7ff;
   border: 1px solid #d9e8ff;
+}
+
+.final-high-score {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 16px 0 0;
+  color: #1d4ed8;
 }
 
 main {
