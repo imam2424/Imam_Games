@@ -22,13 +22,26 @@ const games = {
   },
   tebakNama: {
     title: "Tebak Nama",
-    description: "Baca petunjuk dan pilih jawaban yang benar.",
+    description: "Baca petunjuk dan pilih jawaban yang benar dari buah, hewan, dan benda sehari-hari.",
     questions: [
       { prompt: "Binatang peliharaan yang suka menggonggong.", image: "🐶", answer: "Anjing", choices: ["Kucing", "Anjing", "Ayam", "Kelinci"] },
-      { prompt: "Alat yang dipakai untuk menulis di kertas.", image: "✏️", answer: "Pensil", choices: ["Penggaris", "Pensil", "Gunting", "Sapu"] },
-      { prompt: "Benda yang tumbuh di kebun dan bersayap.", image: "🦋", answer: "Kupu-kupu", choices: ["Kupu-kupu", "Ikan", "Kelinci", "Buku"] },
-      { prompt: "Minuman yang berasal dari buah jeruk.", image: "🍹", answer: "Jus", choices: ["Jus", "Susu", "Teh", "Air"] },
-      { prompt: "Makanan khas nasi yang digulung dengan rumput laut.", image: "🍣", answer: "Sushi", choices: ["Pizza", "Sushi", "Roti", "Burger"] },
+      { prompt: "Buah hijau dengan daging lembut dan biji besar.", image: "🥑", answer: "Alpukat", choices: ["Pisang", "Alpukat", "Mangga", "Jeruk"] },
+      { prompt: "Buah kecil, ungu, dan sering dijadikan jus.", image: "🍇", answer: "Anggur", choices: ["Anggur", "Ceri", "Apel", "Nanas"] },
+      { prompt: "Binatang berkantung yang melompat.", image: "🦘", answer: "Kanguru", choices: ["Kancil", "Kanguru", "Kelinci", "Kuda"] },
+      { prompt: "Buah kuning, manis, dan harum tropis.", image: "🥭", answer: "Mangga", choices: ["Nanas", "Pepaya", "Mangga", "Leci"] },
+    ],
+  },
+  tebakBuahHewan: {
+    title: "Tebak Buah & Hewan",
+    description: "Pilih jawaban yang tepat dari nama buah dan hewan populer di Indonesia.",
+    questions: [
+      { prompt: "Buah berkulit berduri dan harum khas tropis.", image: "🌴", answer: "Durian", choices: ["Nangka", "Durian", "Sawo", "Melon"] },
+      { prompt: "Binatang besar dengan belalai panjang.", image: "🐘", answer: "Gajah", choices: ["Harimau", "Gajah", "Kuda", "Singa"] },
+      { prompt: "Buah berbentuk lonjong hijau yang sering dibuat jus.", image: "🥝", answer: "Kiwi", choices: ["Kiwi", "Avokad", "Anggur", "Lime"] },
+      { prompt: "Binatang kecil berbulu yang suka wortel.", image: "🐇", answer: "Kelinci", choices: ["Kucing", "Kelinci", "Kuda", "Bebek"] },
+      { prompt: "Buah oranye dengan rasa asam segar.", image: "🍋", answer: "Lemon", choices: ["Jeruk", "Lemon", "Nanas", "Markisa"] },
+      { prompt: "Binatang pemangsa dengan corak belang.", image: "🐅", answer: "Harimau", choices: ["Jerapah", "Harimau", "Kuda Nil", "Badak"] },
+      { prompt: "Buah merah kecil dengan bintik-bintik manis.", image: "🍓", answer: "Stroberi", choices: ["Ceri", "Stroberi", "Rambutan", "Delima"] },
     ],
   },
   tebakNegara: {
