@@ -55,7 +55,7 @@ const games = {
   },
   hitungCepat: {
     title: "Hitung Cepat",
-    description: "Hitung angka dengan cepat dan pilih jawaban yang benar.",
+    description: "Latih cepat hitung angka dan pilih jawaban yang benar.",
     questions: [
       { prompt: "5 + 3 = ?", image: "➕", answer: "8", choices: ["7", "8", "9", "6"] },
       { prompt: "7 - 2 = ?", image: "➖", answer: "5", choices: ["3", "5", "6", "4"] },
@@ -66,7 +66,7 @@ const games = {
   },
   susunKata: {
     title: "Susun Kata",
-    description: "Cari kata yang benar dari huruf yang tersedia.",
+    description: "Cari kata yang benar dari huruf campur.",
     questions: [
       { prompt: "Huruf: S A Y U R", image: "🥕", answer: "Sayur", choices: ["Sayur", "Buah", "Kue", "Air"] },
       { prompt: "Huruf: B O L A", image: "⚽", answer: "Bola", choices: ["Bola", "Kuda", "Kasur", "Buku"] },
