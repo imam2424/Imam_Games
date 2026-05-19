@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imam Games - Permainan Anak</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div>
+        <h1>Imam Games</h1>
+        <p>Permainan edukasi anak: Tabak Gambar, Tebak Nama, Tebak Negara, Quiz Kata.</p>
+      </div>
+      <div class="header-meta">
+        <div class="timer" id="timer">05:00</div>
+        <div class="score">Skor: <span id="score">0</span></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="screen screen-start active" id="startScreen">
+        <div class="card">
+          <h2>Pilih Permainan</h2>
+          <div class="game-grid">
+            <button class="game-card" data-game="tabakGambar">
+              <strong>Tabak Gambar</strong>
+              <span>Tebak nama dari gambar emoji.</span>
+            </button>
+            <button class="game-card" data-game="tebakNama">
+              <strong>Tebak Nama</strong>
+              <span>Tebak nama binatang atau objek dari petunjuk.</span>
+            </button>
+            <button class="game-card" data-game="tebakNegara">
+              <strong>Tebak Negara</strong>
+              <span>Kenali negara dari ibukota atau bendera.</span>
+            </button>
+            <button class="game-card" data-game="quizKata">
+              <strong>Quiz Kata</strong>
+              <span>Jawab pertanyaan singkat untuk nilai ekstra.</span>
+            </button>
+          </div>
+          <div class="action-row">
+            <button class="btn btn-primary" id="startButton">Mulai Permainan</button>
+          </div>
+          <p class="hint">Timer berjalan sampai 5 menit. Mainkan semua game sebanyak mungkin!</p>
+        </div>
+      </section>
+
+      <section class="screen screen-game" id="gameScreen" aria-hidden="true">
+        <div class="card game-panel">
+          <div class="panel-header">
+            <div>
+              <h2 id="gameTitle">Permainan</h2>
+              <p id="gameDescription">Petunjuk akan muncul di sini.</p>
+            </div>
+            <div class="game-actions">
+              <button class="btn btn-secondary" id="changeGameButton">Ganti Game</button>
+              <button class="btn btn-secondary" id="restartButton">Mulai Ulang</button>
+            </div>
+          </div>
+
+          <div class="game-content" id="gameContent">
+            <div class="prompt" id="promptText"></div>
+            <div class="visual" id="visualHint"></div>
+            <div class="options-grid" id="optionsGrid"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen screen-end" id="endScreen" aria-hidden="true">
+        <div class="card">
+          <h2>Waktu Habis!</h2>
+          <p>Skor akhir kamu:</p>
+          <div class="final-score" id="finalScore">0</div>
+          <div class="action-row">
+            <button class="btn btn-primary" id="playAgainButton">Main Lagi</button>
+            <button class="btn btn-secondary" id="returnHomeButton">Kembali ke Menu</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>Fitur: timer 5 menit, skor, pergantian game, restart, visual dan pilihan interaktif.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
